@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Jovana&Dejan</title>
+</head>
+
+<body>
+  <section id="intro">
+    <img src="assets/0.png">
+    <p>We are so excited to share this special day with you. <br />
+      After years of laughter, adventures, and unforgettable
+      moments, <br />
+      we are ready to take the next step on our journey together <br />
+      and we can't imagine it without the people we love most by our side.</p>
+    <p>September 19, 2026</p>
+  </section>
+
+  <section id="countdown">
+    <!-- <img src="assets/1.png"> -->
+    <h2>Countdown</h2>
+    <p>For the most special day of our lives</p>
+
+    <div class="countdown-grid">
+      <div class="time-box">
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+      <div class="time-box">
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+      <div class="time-box">
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+      <div class="time-box">
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+    <!-- <img src="assets/2.png"> -->
+  </section>
+
+  <section id="location">
+    <h2>Details of the day</h2>
+    <p>Everything you need to know</p>
+    <h2>Location</h2>
+    <i class="fa-solid fa-location-dot"></i>
+    <p>Ribarsko Ostrvo, Novi Sad</p>
+    <p>
+      <i class="fa-regular fa-clock" style="color:#6b4e3d;"></i>
+      17:00h - 01:00h
+    </p>
+    <!-- <img src=""> -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6709.912337640627!2d19.830263247767306!3d45.23117789006114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b101d18005b61%3A0x35b26ab0cf47030d!2z0KDQuNCx0LDRgNGB0LrQviDQvtGB0YLRgNCy0L4sINCd0L7QstC4INCh0LDQtA!5e1!3m2!1ssr!2srs!4v1768247068189!5m2!1ssr!2srs"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <section id="plan">
+    <h2>Program of the day</h2>
+    <p>What we have prepared for you</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="time">10:00</div>
+        <div class="circle"><i class="fa-solid fa-church"></i></div>
+        <div class="label">Church wedding</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">11:30</div>
+        <div class="circle"><i class="fa-solid fa-building"></i></div>
+        <div class="label">Municipal wedding</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">16:30</div>
+        <div class="circle"><i class="fa-solid fa-users"></i></div>
+        <div class="label">Ceremonial hall</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">21:00</div>
+        <div class="circle"><i class="fa-solid fa-birthday-cake"></i></div>
+        <div class="label">Wedding cake</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">01:00</div>
+        <div class="circle"><i class="fa-solid fa-flag-checkered"></i></div>
+        <div class="label">The end of the day</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- <img src="assets/3.png"> -->
+
+  <section id="form">
+    <h2>Confirm your attendance</h2>
+    <p>We hope to see you there</p>
+
+    <label for="full_name">Full name</label>
+    <input type="text" id="full_name" placeholder="First and last name" />
+
+    <label for="full_name">Your email (optional)</label>
+    <input type="email" id="email" placeholder="Email" />
+
+    <label>Are you coming?</label>
+    <div class="toggle-group">
+      <input type="radio" id="yes" name="attendance" value="yes">
+      <label for="yes" class="toggle">Yes</label>
+
+      <input type="radio" id="no" name="attendance" value="no">
+      <label for="no" class="toggle">No</label>
+    </div>
+
+    <label for="options" id="options-label">How many are coming with you?</label>
+    <select id="options">
+      <option value="">+1</option>
+      <option value="">+2</option>
+      <option value="">+3</option>
+      <option value="">+4</option>
+      <option value="">+5</option>
+      <option value="">+6</option>
+      <option value="">+7</option>
+      <option value="">+8</option>
+      <option value="">+9</option>
+    </select>
+    <label for="message" id="message-label">Message for the newlyweds (optional)</label>
+    <textarea id="message" placeholder="Message"></textarea>
+    <button>Send <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+  </section>
+
+  <section id="footer">
+    <i class="fa-regular fa-heart"></i>
+    <h2>Jovana & Dejan</h2>
+    <p>September 19, 2026</p>
+    <p>With all our love</p>
+  </section>
+</body>
+
+</html>
