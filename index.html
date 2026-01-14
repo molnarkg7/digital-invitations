@@ -107,37 +107,45 @@
   <section id="form">
     <h2>Confirm your attendance</h2>
     <p>We hope to see you there</p>
+    <form id="weddingForm">
 
-    <label for="full_name">Full name</label>
-    <input type="text" id="full_name" placeholder="First and last name" />
+      <label for="full_name">Full name</label>
+      <input type="text" id="full_name" placeholder="First and last name" required />
 
-    <label for="full_name">Your email (optional)</label>
-    <input type="email" id="email" placeholder="Email" />
+      <label for="email">Your email (optional)</label>
+      <input type="email" id="email" placeholder="Email" />
 
-    <label>Are you coming?</label>
-    <div class="toggle-group">
-      <input type="radio" id="yes" name="attendance" value="yes">
-      <label for="yes" class="toggle">Yes</label>
+      <label>Are you coming?</label>
+      <div class="toggle-group">
+        <input type="radio" id="yes" name="attendance" value="yes" required>
+        <label for="yes" class="toggle">Yes</label>
 
-      <input type="radio" id="no" name="attendance" value="no">
-      <label for="no" class="toggle">No</label>
-    </div>
+        <input type="radio" id="no" name="attendance" value="no">
+        <label for="no" class="toggle">No</label>
+      </div>
 
-    <label for="options" id="options-label">How many are coming with you?</label>
-    <select id="options">
-      <option value="">+1</option>
-      <option value="">+2</option>
-      <option value="">+3</option>
-      <option value="">+4</option>
-      <option value="">+5</option>
-      <option value="">+6</option>
-      <option value="">+7</option>
-      <option value="">+8</option>
-      <option value="">+9</option>
-    </select>
-    <label for="message" id="message-label">Message for the newlyweds (optional)</label>
-    <textarea id="message" placeholder="Message"></textarea>
-    <button>Send <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+      <label for="options">How many are coming with you?</label>
+      <select id="options">
+        <option value="0">Just me</option>
+        <option value="1">+1</option>
+        <option value="2">+2</option>
+        <option value="3">+3</option>
+        <option value="4">+4</option>
+        <option value="5">+5</option>
+        <option value="6">+6</option>
+        <option value="7">+7</option>
+        <option value="8">+8</option>
+        <option value="9">+9</option>
+      </select>
+
+      <label for="message">Message for the newlyweds (optional)</label>
+      <textarea id="message" placeholder="Message"></textarea>
+
+      <button type="submit">
+        Send <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </button>
+
+    </form>
   </section>
 
   <section id="footer">
@@ -146,6 +154,63 @@
     <p>September 19, 2026</p>
     <p>With all our love</p>
   </section>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcIti9WCKIv1MLyGiBWLIuu3gS7MNsphc",
+      authDomain: "digital-invitations-a2d32.firebaseapp.com",
+      projectId: "digital-invitations-a2d32",
+      storageBucket: "digital-invitations-a2d32.firebasestorage.app",
+      messagingSenderId: "552488253368",
+      appId: "1:552488253368:web:2ed144c19dd3b06d7ec14d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("weddingForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById("full_name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const companions = Number(document.getElementById("options").value);
+      const message = document.getElementById("message").value.trim();
+
+      const attendance = document.querySelector(
+        'input[name="attendance"]:checked'
+      ).value;
+
+      const isComing = attendance === "yes";
+
+      try {
+        await addDoc(collection(db, "guests"), {
+          full_name: fullName,
+          email: email || null,
+          is_coming: isComing,
+          companions: isComing ? companions : 0,
+          message: message || null,
+          created_at: serverTimestamp()
+        });
+
+        alert("Thank you! Your response has been sent ❤️");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  </script>
+
 </body>
 
 </html>
