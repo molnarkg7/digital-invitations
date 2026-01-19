@@ -7,126 +7,136 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
-  <title>Jovana&Dejan</title>
+  <title>Dejan & Jovana</title>
 </head>
 
 <body>
   <section id="intro">
-    <img src="assets/0.png">
-    <p>We are so excited to share this special day with you. <br />
-      After years of laughter, adventures, and unforgettable
-      moments, <br />
-      we are ready to take the next step on our journey together <br />
-      and we can't imagine it without the people we love most by our side.</p>
-    <p>September 19, 2026</p>
+    <img style="border-radius: 10px;" src="assets/pozivnica.jpg">
+    <p class="pozivnicaText">Dragi naši, <br /> Sa velikom radošću i još većom dozom uzbuđenja, pozivamo Vas da budete
+      deo dana,
+      kada ćemo reći "DA" i zvanično postati tim za ceo život!</p>
   </section>
 
-  <section id="countdown">
-    <!-- <img src="assets/1.png"> -->
-    <h2>Countdown</h2>
-    <p>For the most special day of our lives</p>
+  <div class="section-divider">
+    <span class="line"></span>
+    <span class="stars">♥</span>
+    <span class="line"></span>
+  </div>
 
+  <section style="margin-top: 0;" id="countdown">
+    <h2>Odbrojavanje do našeg velikog dana</h2>
     <div class="countdown-grid">
       <div class="time-box">
         <span id="days">0</span>
-        <small>Days</small>
+        <small>Dana</small>
       </div>
       <div class="time-box">
         <span id="hours">0</span>
-        <small>Hours</small>
+        <small>Sati</small>
       </div>
       <div class="time-box">
         <span id="minutes">0</span>
-        <small>Minutes</small>
+        <small>Minuta</small>
       </div>
       <div class="time-box">
         <span id="seconds">0</span>
-        <small>Seconds</small>
+        <small>Sekundi</small>
       </div>
     </div>
-    <!-- <img src="assets/2.png"> -->
   </section>
 
-  <section id="location">
-    <h2>Details of the day</h2>
-    <p>Everything you need to know</p>
-    <h2>Location</h2>
-    <i class="fa-solid fa-location-dot"></i>
-    <p>Ribarsko Ostrvo, Novi Sad</p>
-    <p>
-      <i class="fa-regular fa-clock" style="color:#6b4e3d;"></i>
-      17:00h - 01:00h
-    </p>
-    <!-- <img src=""> -->
+  <div class="section-divider">
+    <span class="line"></span>
+    <span class="stars">♥</span>
+    <span class="line"></span>
+  </div>
+
+  <section style="margin-top: 0;" id="location">
+    <h2>Lokacija</h2>
+    <img src="assets/lokacija.png" style="width: 30px; height: 30px;" srcset="">
+    <h3>Restoran Ribarac</h3>
+    <p>Ribarsko Ostrvo, Novi Sad, Srbija</p>
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.0134735573674!2d19.8333761!3d45.230207099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1004a8a3c90d%3A0xb9e6ff46e15340e7!2sRestoran%20Ribarac!5e1!3m2!1ssr!2srs!4v1768432482317!5m2!1ssr!2srs"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
-  <section id="plan">
-    <h2>Program of the day</h2>
-    <p>What we have prepared for you</p>
+  <div class="section-divider">
+    <span class="line"></span>
+    <span class="stars">♥</span>
+    <span class="line"></span>
+  </div>
+
+  <section style="margin-top: 0;" id="plan">
+    <h2>Program dana</h2>
     <div class="timeline">
 
       <div class="timeline-item">
-        <div class="time">10:00</div>
-        <div class="circle"><i class="fa-solid fa-church"></i></div>
-        <div class="label">Church wedding</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time">11:30</div>
-        <div class="circle"><i class="fa-solid fa-building"></i></div>
-        <div class="label">Municipal wedding</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time">16:30</div>
+        <div class="time">12:00</div>
         <div class="circle"><i class="fa-solid fa-users"></i></div>
-        <div class="label">Ceremonial hall</div>
+        <div class="label">Skup svatova, dvorište restorana Ribarac, Zajednički polazak u crkvu 13:00h</div>
       </div>
 
       <div class="timeline-item">
-        <div class="time">21:00</div>
-        <div class="circle"><i class="fa-solid fa-birthday-cake"></i></div>
-        <div class="label">Wedding cake</div>
+        <div class="time">13:30</div>
+        <div class="circle"><i class="fa-solid fa-church"></i></div>
+        <div class="label">Crkveno venčanje, Hram Svetog Simeona Mirotočivog</div>
       </div>
 
       <div class="timeline-item">
-        <div class="time">01:00</div>
-        <div class="circle"><i class="fa-solid fa-flag-checkered"></i></div>
-        <div class="label">The end of the day</div>
+        <div class="time">16:00</div>
+        <div class="circle"><i class="fa-solid fa-utensils"></i></div>
+        <div class="label">Ručak u restoranu Ribarac</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">18:30</div>
+        <div class="circle"><i class="fa-solid fa-heart"></i></div>
+        <div class="label">Građansko venčanje u svečanoj sali</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time">00:00</div>
+        <div class="circle"><i class="fa-solid fa-hourglass-end"></i></div>
+        <div class="label">Kraj</div>
       </div>
 
     </div>
   </section>
 
+  <div class="section-divider">
+    <span class="line"></span>
+    <span class="stars">♥</span>
+    <span class="line"></span>
+  </div>
 
-  <!-- <img src="assets/3.png"> -->
+  <section style="margin-top: 0;">
+    <p>Molimo Vas da u nastavku pozivnice potvrdite svoj dolazak i navedete broj osoba koje sa Vama dolaze, najkasnije
+      do
+      1.8.2026.</p>
+  </section>
 
-  <section id="form">
-    <h2>Confirm your attendance</h2>
-    <p>We hope to see you there</p>
+  <section style="margin-top: 0;" id="form">
+    <p>Radujemo se Vašem prisustvu!</p>
+
     <form id="weddingForm">
 
-      <label for="full_name">Full name</label>
-      <input type="text" id="full_name" placeholder="First and last name" required />
-
-      <label for="email">Your email (optional)</label>
-      <input type="email" id="email" placeholder="Email" />
-
-      <label>Are you coming?</label>
+      <label style="text-align: center;">Da li dolazite?</label>
       <div class="toggle-group">
         <input type="radio" id="yes" name="attendance" value="yes" required>
-        <label for="yes" class="toggle">Yes</label>
+        <label for="yes" class="toggle">Da</label>
 
-        <input type="radio" id="no" name="attendance" value="no">
-        <label for="no" class="toggle">No</label>
+        <input type="radio" id="no" name="attendance" value="no" required>
+        <label for="no" class="toggle">Ne</label>
       </div>
 
-      <label for="options">How many are coming with you?</label>
-      <select id="options">
-        <option value="0">Just me</option>
+      <input type="text" id="full_name" placeholder="Ime i prezime" required />
+
+      <label style="padding-top: 20px;" for="options" class="attendanceLabel">Sa koliko osoba dolazite?</label>
+      <select id="options" required disabled>
+        <option value="">Izaberi...</option>
+        <option value="0">Dolazim sam</option>
         <option value="1">+1</option>
         <option value="2">+2</option>
         <option value="3">+3</option>
@@ -138,21 +148,78 @@
         <option value="9">+9</option>
       </select>
 
-      <label for="message">Message for the newlyweds (optional)</label>
-      <textarea id="message" placeholder="Message"></textarea>
+      <div id="additionalGuests"></div>
 
-      <button type="submit">
-        Send <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      <button type="submit" id="submitBtn" disabled>
+        Pošalji <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </button>
 
     </form>
+
+    <script>
+      const form = document.getElementById('weddingForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const optionsSelect = document.getElementById('options');
+      const guestsContainer = document.getElementById('additionalGuests');
+      const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+      const attendanceLabel = document.querySelector('.attendanceLabel');
+
+      const checkFormValidity = () => {
+        submitBtn.disabled = !form.checkValidity();
+      };
+
+      attendanceRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          if (radio.value === 'yes') {
+            optionsSelect.disabled = false;
+            optionsSelect.required = true;
+            attendanceLabel.style.display = '';
+          } else {
+            optionsSelect.value = '';
+            optionsSelect.disabled = true;
+            optionsSelect.required = false;
+            guestsContainer.innerHTML = '';
+            attendanceLabel.style.display = 'none';
+          }
+
+
+          checkFormValidity();
+        });
+      });
+
+      optionsSelect.addEventListener('change', function () {
+        const numberOfGuests = parseInt(this.value || 0);
+        guestsContainer.innerHTML = '';
+
+        for (let i = 1; i <= numberOfGuests; i++) {
+          const label = document.createElement('label');
+          label.textContent = `Ime i prezime ${i}. gosta`;
+
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.name = `guest_${i}`;
+          input.placeholder = 'Ime i prezime';
+          input.required = true;
+
+          input.addEventListener('input', checkFormValidity);
+
+          guestsContainer.appendChild(label);
+          guestsContainer.appendChild(input);
+        }
+
+        checkFormValidity();
+      });
+
+      form.addEventListener('input', checkFormValidity);
+      form.addEventListener('change', checkFormValidity);
+    </script>
   </section>
 
-  <section id="footer">
-    <i class="fa-regular fa-heart"></i>
-    <h2>Jovana & Dejan</h2>
-    <p>September 19, 2026</p>
-    <p>With all our love</p>
+  <section id="footer" style="margin-bottom: 30px;">
+    <h3>Očekujemo Vas!</h3>
+    <h3 style="font-style: italic; margin-top: 20px;">S ljubavlju,</h3>
+    <h2 style="font-style: italic;">Dejan & Jovana</h2>
+    <p>Septembar 19, 2026</p>
   </section>
 
   <script type="module">
@@ -176,37 +243,45 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    const form = document.getElementById("weddingForm");
-
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const fullName = document.getElementById("full_name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const companions = Number(document.getElementById("options").value);
-      const message = document.getElementById("message").value.trim();
-
       const attendance = document.querySelector(
         'input[name="attendance"]:checked'
       ).value;
 
       const isComing = attendance === "yes";
+      const companionsCount = isComing ? Number(document.getElementById("options").value) : 0;
+
+      const companions = [];
+      if (isComing && companionsCount > 0) {
+        for (let i = 1; i <= companionsCount; i++) {
+          const guestInput = document.querySelector(`input[name="guest_${i}"]`);
+          if (guestInput && guestInput.value.trim() !== "") {
+            companions.push({ full_name: guestInput.value.trim() });
+          }
+        }
+      }
 
       try {
         await addDoc(collection(db, "guests"), {
           full_name: fullName,
-          email: email || null,
           is_coming: isComing,
-          companions: isComing ? companions : 0,
-          message: message || null,
-          created_at: serverTimestamp()
+          companions_count: companionsCount,
+          companions: companions,
+          createdAt: serverTimestamp()
         });
 
-        alert("Thank you! Your response has been sent ❤️");
+        alert("Hvala! Vaš odgovor je poslat ❤️");
         form.reset();
+
+        document.getElementById("additionalGuests").innerHTML = "";
+        document.getElementById("options").disabled = true;
+        submitBtn.disabled = true;
       } catch (err) {
         console.error(err);
-        alert("Something went wrong. Please try again.");
+        alert("Došlo je do greške. Pokušajte ponovo.");
       }
     });
   </script>
