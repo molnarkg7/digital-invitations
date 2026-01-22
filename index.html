@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <link rel="icon" type="image/png" href="assets/srce.png" />
   <title>Dejan & Jovana</title>
 </head>
 
@@ -60,6 +62,11 @@
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.0134735573674!2d19.8333761!3d45.230207099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1004a8a3c90d%3A0xb9e6ff46e15340e7!2sRestoran%20Ribarac!5e1!3m2!1ssr!2srs!4v1768432482317!5m2!1ssr!2srs"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a href="https://www.google.com/maps/place/Restoran+Ribarac/@45.2302108,19.8308012,770m/data=!3m2!1e3!4b1!4m6!3m5!1s0x475b1004a8a3c90d:0xb9e6ff46e15340e7!8m2!3d45.2302071!4d19.8333761!16s%2Fg%2F1txnn7jh?entry=ttu&g_ep=EgoyMDI2MDEyMC4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
+      target="_blank"
+      style="display:inline-block;margin-top:10px;padding:8px 15px;background:#422e16;color:white;border-radius:5px;text-decoration:none;">
+      Prikaži u Google Maps
+    </a>
   </section>
 
   <div class="section-divider">
@@ -75,31 +82,32 @@
       <div class="timeline-item">
         <div class="time">12:00</div>
         <div class="circle"><i class="fa-solid fa-users"></i></div>
-        <div class="label">Skup svatova, dvorište restorana Ribarac, Zajednički polazak u crkvu 13:00h</div>
+        <div class="label"><b>Skup svatova</b><br />Dvorište restorana Ribarac, Zajednički polazak u crkvu 13:00h</div>
       </div>
 
       <div class="timeline-item">
         <div class="time">13:30</div>
         <div class="circle"><i class="fa-solid fa-church"></i></div>
-        <div class="label">Crkveno venčanje, Hram Svetog Simeona Mirotočivog</div>
+        <div class="label"><b>Crkveno venčanje</b><br />Hram Svetog Simeona Mirotočivog (Ive Lole Ribara 1, Veternik)
+        </div>
       </div>
 
       <div class="timeline-item">
         <div class="time">16:00</div>
         <div class="circle"><i class="fa-solid fa-utensils"></i></div>
-        <div class="label">Ručak u restoranu Ribarac</div>
+        <div class="label"><b>Ručak</b><br />Restoran Ribarac</b></div>
       </div>
 
       <div class="timeline-item">
         <div class="time">18:30</div>
         <div class="circle"><i class="fa-solid fa-heart"></i></div>
-        <div class="label">Građansko venčanje u svečanoj sali</div>
+        <div class="label"><b>Građansko venčanje</b><br />Restoran Ribarac</div>
       </div>
 
       <div class="timeline-item">
         <div class="time">00:00</div>
         <div class="circle"><i class="fa-solid fa-hourglass-end"></i></div>
-        <div class="label">Kraj</div>
+        <div class="label"><b>Kraj</b></div>
       </div>
 
     </div>
@@ -193,7 +201,7 @@
 
         for (let i = 1; i <= numberOfGuests; i++) {
           const label = document.createElement('label');
-          label.textContent = `Ime i prezime ${i}. gosta`;
+          label.textContent = `Ime i prezime ${i + 1}. gosta`;
 
           const input = document.createElement('input');
           input.type = 'text';
@@ -222,7 +230,12 @@
     <p>Septembar 19, 2026</p>
   </section>
 
+  <button id="downloadExcel" class="excel-btn">
+    <i class="fa-solid fa-file-excel"></i> Preuzmi Excel
+  </button>
+
   <script type="module">
+    import { getDocs } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
     import {
       getFirestore,
@@ -273,7 +286,7 @@
           createdAt: serverTimestamp()
         });
 
-        alert("Hvala! Vaš odgovor je poslat ❤️");
+        alert("Hvala! Vaš odgovor je uspešno poslat. Radujemo se što ćete biti deo našeg velikog dana! ❤️");
         form.reset();
 
         document.getElementById("additionalGuests").innerHTML = "";
@@ -284,6 +297,46 @@
         alert("Došlo je do greške. Pokušajte ponovo.");
       }
     });
+
+    //excel logika
+
+    const downloadBtn = document.getElementById("downloadExcel");
+
+    downloadBtn.addEventListener("click", async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "guests"));
+        const data = [];
+
+        querySnapshot.forEach((doc) => {
+          const docData = doc.data();
+
+          const row = {
+            "Ime i prezime": docData.full_name,
+            "Dolazi": docData.is_coming ? "Dolazi" : "Ne dolazi",
+            "Broj pratilaca": docData.companions_count
+          };
+
+          if (docData.companions && docData.companions.length > 0) {
+            docData.companions.forEach((comp, index) => {
+              row[`Gost ${index + 1}`] = comp.full_name;
+            });
+          }
+
+          data.push(row);
+        });
+
+        const ws = XLSX.utils.json_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Gosti");
+
+        XLSX.writeFile(wb, "Gosti.xlsx");
+
+      } catch (err) {
+        console.error(err);
+        alert("Došlo je do greške prilikom preuzimanja Excel fajla.");
+      }
+    });
+
   </script>
 
 </body>

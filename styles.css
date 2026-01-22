@@ -92,165 +92,6 @@ img {
   letter-spacing: 1px;
 }
 
-#plan .timeline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-  position: relative;
-}
-
-#plan .timeline::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background-color: #422e16;
-  z-index: 1;
-}
-
-.timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-  flex: 1;
-}
-
-.timeline-item .time {
-  width: 50px;
-  height: 30px;
-  background-color: #422e16;
-  color: #f7f2ec;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-align: center;
-  flex-shrink: 0;
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  cursor: default;
-}
-
-.timeline-item .time:hover {
-  background-color: #f7f2ec;
-  color: #422e16;
-  border-color: #422e16;
-}
-
-.timeline-item .circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #422e16;
-  color: #f7f2ec;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  z-index: 2;
-}
-
-.timeline-item .label {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  text-align: center;
-  max-width: 80px;
-}
-
-.timeline-item:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -50%;
-  width: 100%;
-  height: 2px;
-  background-color: #422e16;
-  z-index: 1;
-}
-
-@media (max-width: 700px) {
-  #plan .timeline {
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-
-  #plan .timeline::before {
-    display: none;
-  }
-
-  .timeline-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-
-  .timeline-item .time {
-    width: 60px;
-    text-align: right;
-    margin-right: 1rem;
-    flex-shrink: 0;
-  }
-
-  .timeline-item .circle {
-    position: relative;
-    z-index: 2;
-    flex-shrink: 0;
-    margin: 0 1rem;
-  }
-
-  .timeline-item .label {
-    flex: 1;
-    text-align: left;
-  }
-
-  .timeline-item:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: calc(50% + 25px);
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: calc(100% - 25px);
-    background-color: #422e16;
-    z-index: 1;
-  }
-}
-
-.timeline-item .circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #f7f2ec;
-  border: 2px solid #422e16;
-  color: #422e16;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-
-.timeline-item .circle:hover {
-  transform: scale(1.2);
-  background-color: #fff0e6;
-  border-color: #422e16;
-  cursor: pointer;
-}
-
 #form {
   background-color: #f7f2ec;
   border: 1px solid #422e16;
@@ -391,11 +232,30 @@ img {
   color: #f7f2ec;
 }
 
-iframe {
+#location {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+#location iframe {
   width: 100%;
   height: 300px;
   border: none;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  #location {
+    padding: 1rem;
+  }
+
+  #location iframe {
+    height: 200px;
+  }
 }
 
 #footer {
@@ -518,4 +378,145 @@ iframe {
   color: #867764;
   font-size: 24px;
   white-space: nowrap;
+}
+
+#plan .timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2rem;
+  position: relative;
+}
+
+#plan .timeline::before {
+  display: none;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  z-index: 2;
+}
+
+.timeline-item .time {
+  width: 50px;
+  height: 30px;
+  background-color: #422e16;
+  color: #f7f2ec;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.timeline-item .time:hover {
+  background-color: #f7f2ec;
+  color: #422e16;
+  border-color: #422e16;
+}
+
+.timeline-item .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f7f2ec;
+  border: 2px solid #422e16;
+  color: #422e16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  z-index: 2;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item .circle:hover {
+  transform: scale(1.2);
+  background-color: #fff0e6;
+  border-color: #422e16;
+  cursor: pointer;
+}
+
+.timeline-item .label {
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 100px;
+  margin-top: 0.5rem;
+  min-height: 40px;
+}
+
+.timeline-item:not(:last-child)::after {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  #plan .timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: auto;
+  }
+
+  .timeline-item .time {
+    order: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item .circle {
+    order: 2;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item .label {
+    order: 3;
+    text-align: center;
+    max-width: 200px;
+  }
+
+  .timeline-item:not(:last-child)::after {
+    display: none;
+  }
+}
+
+.excel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  background-color: #1e6823;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.excel-btn:hover {
+  background-color: #145214;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.excel-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
