@@ -13,9 +13,19 @@
 </head>
 
 <body>
+  <section style="margin-bottom: 0;">
+    <div id="lang-switcher">
+      <select id="languageSelect">
+        <option value="sr">Srpski</option>
+        <option value="nr">Norsk</option>
+      </select>
+    </div>
+  </section>
+
   <section style="margin-bottom: 0;" id="intro">
     <img style="border-radius: 10px;" src="assets/pozivnica.jpg">
-    <p class="pozivnicaText">Dragi naši, <br /> Sa velikom radošću i još većom dozom uzbuđenja, pozivamo Vas da budete
+    <p data-i18n="intro_text" class="pozivnicaText">Dragi naši, <br /> Sa velikom radošću i još većom dozom uzbuđenja,
+      pozivamo Vas da budete
       deo dana,
       kada ćemo reći "DA" i zvanično postati tim za ceo život!</p>
   </section>
@@ -27,23 +37,23 @@
   </div>
 
   <section style="margin-top: 0; margin-bottom: 0; padding-bottom: 20px;" id="countdown">
-    <h2>Odbrojavanje do našeg velikog dana</h2>
+    <h2 data-i18n="countdown_title">Odbrojavanje do našeg velikog dana</h2>
     <div class="countdown-grid">
       <div class="time-box">
         <span id="days">0</span>
-        <small>Dana</small>
+        <small data-i18n="dani">Dana</small>
       </div>
       <div class="time-box">
         <span id="hours">0</span>
-        <small>Sati</small>
+        <small data-i18n="sati">Sati</small>
       </div>
       <div class="time-box">
         <span id="minutes">0</span>
-        <small>Minuta</small>
+        <small data-i18n="minuti">Minuta</small>
       </div>
       <div class="time-box">
         <span id="seconds">0</span>
-        <small>Sekundi</small>
+        <small data-i18n="sekundi">Sekundi</small>
       </div>
     </div>
   </section>
@@ -55,15 +65,15 @@
   </div>
 
   <section style="margin-top: 0; margin-bottom: 0;" id="location">
-    <h2>Lokacija</h2>
+    <h2 data-i18n="location">Lokacija</h2>
     <img src="assets/lokacija.png" style="width: 30px; height: 30px;" srcset="">
-    <h3>Restoran Ribarac</h3>
-    <p>Ribarsko Ostrvo, Novi Sad, Srbija</p>
+    <h3 data-i18n="restoran">Restoran Ribarac</h3>
+    <p data-i18n="tacna_lokacija">Ribarsko Ostrvo, Novi Sad, Srbija</p>
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.0134735573674!2d19.8333761!3d45.230207099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1004a8a3c90d%3A0xb9e6ff46e15340e7!2sRestoran%20Ribarac!5e1!3m2!1ssr!2srs!4v1768432482317!5m2!1ssr!2srs"
       allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <a href="https://www.google.com/maps/place/Restoran+Ribarac/@45.2302108,19.8308012,770m/data=!3m2!1e3!4b1!4m6!3m5!1s0x475b1004a8a3c90d:0xb9e6ff46e15340e7!8m2!3d45.2302071!4d19.8333761!16s%2Fg%2F1txnn7jh?entry=ttu&g_ep=EgoyMDI2MDEyMC4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
-      target="_blank"
+      target="_blank" data-i18n="google_maps"
       style="display:inline-block;margin-top:10px;padding:8px 15px;background:#422e16;color:white;border-radius:5px;text-decoration:none;">
       Prikaži u Google Maps
     </a>
@@ -76,38 +86,40 @@
   </div>
 
   <section style="margin-top: 0; margin-bottom: 0;" id="plan">
-    <h2>Program dana</h2>
+    <h2 data-i18n="program">Program dana</h2>
     <div class="timeline">
 
       <div class="timeline-item">
         <div class="time">12:00</div>
         <div class="circle"><i class="fa-solid fa-users"></i></div>
-        <div class="label"><b>Skup svatova</b><br />Dvorište restorana Ribarac, Zajednički polazak u crkvu 13:00h</div>
+        <div data-i18n="svatovi" class="label"><b>Skup svatova</b><br />Dvorište restorana Ribarac, Zajednički polazak u
+          crkvu 13:00h</div>
       </div>
 
       <div class="timeline-item">
         <div class="time">13:30</div>
         <div class="circle"><i class="fa-solid fa-church"></i></div>
-        <div class="label"><b>Crkveno venčanje</b><br />Hram Svetog Simeona Mirotočivog (Ive Lole Ribara 1, Veternik)
+        <div data-i18n="crkveno" class="label"><b>Crkveno venčanje</b><br />Hram Svetog Simeona Mirotočivog (Ive Lole
+          Ribara 1, Veternik)
         </div>
       </div>
 
       <div class="timeline-item">
         <div class="time">16:00</div>
         <div class="circle"><i class="fa-solid fa-utensils"></i></div>
-        <div class="label"><b>Ručak</b><br />Restoran Ribarac</b></div>
+        <div data-i18n="rucak" class="label"><b>Ručak</b><br />Restoran Ribarac</b></div>
       </div>
 
       <div class="timeline-item">
         <div class="time">18:30</div>
         <div class="circle"><i class="fa-solid fa-heart"></i></div>
-        <div class="label"><b>Građansko venčanje</b><br />Restoran Ribarac</div>
+        <div data-i18n="gradjansko" class="label"><b>Građansko venčanje</b><br />Restoran Ribarac</div>
       </div>
 
       <div style="margin-bottom: 0;" class="timeline-item">
         <div class="time">00:00</div>
         <div class="circle"><i class="fa-solid fa-hourglass-end"></i></div>
-        <div class="label"><b>Kraj</b></div>
+        <div data-i18n="kraj" class="label"><b>Kraj</b></div>
       </div>
 
     </div>
@@ -120,31 +132,33 @@
   </div>
 
   <section style="margin-top: 0;">
-    <p>Molimo Vas da u nastavku pozivnice potvrdite svoj dolazak i navedete broj osoba koje sa Vama dolaze, najkasnije
+    <p data-i18n="potvrda">Molimo Vas da u nastavku pozivnice potvrdite svoj dolazak i navedete broj osoba koje sa Vama
+      dolaze, najkasnije
       do
       1.8.2026.</p>
   </section>
 
   <section style="margin-top: 0;" id="form">
-    <p style="margin-bottom: 0;">Radujemo se Vašem prisustvu!</p>
+    <p data-i18n="prisustvo" style="margin-bottom: 0;">Radujemo se Vašem prisustvu!</p>
 
     <form id="weddingForm">
 
-      <label style="text-align: center;">Da li dolazite?</label>
+      <label data-i18n="are_you_coming" style="text-align: center;">Da li dolazite?</label>
       <div class="toggle-group">
         <input type="radio" id="yes" name="attendance" value="yes" required>
-        <label for="yes" class="toggle">Da</label>
+        <label data-i18n="da" for="yes" class="toggle">Da</label>
 
         <input type="radio" id="no" name="attendance" value="no" required>
-        <label for="no" class="toggle">Ne</label>
+        <label data-i18n="ne" for="no" class="toggle">Ne</label>
       </div>
 
-      <input type="text" id="full_name" placeholder="Ime i prezime" required />
+      <input data-i18n-placeholder="ime" type="text" id="full_name" placeholder="Ime i prezime" required />
 
-      <label style="padding-top: 20px;" for="options" class="attendanceLabel">Sa koliko osoba dolazite?</label>
+      <label data-i18n="koliko_osoba" style="padding-top: 20px;" for="options" class="attendanceLabel">Sa koliko osoba
+        dolazite?</label>
       <select id="options" required disabled>
-        <option value="">Izaberi...</option>
-        <option value="0">Dolazim sam</option>
+        <option data-i18n="izaberi" value="">Izaberi...</option>
+        <option data-i18n="dolazim_sam" value="0">Dolazim sam</option>
         <option value="1">+1</option>
         <option value="2">+2</option>
         <option value="3">+3</option>
@@ -158,7 +172,7 @@
 
       <div id="additionalGuests"></div>
 
-      <button type="submit" id="submitBtn" disabled>
+      <button data-i18n="dugme_posalji" type="submit" id="submitBtn" disabled>
         Pošalji <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </button>
 
@@ -224,10 +238,10 @@
   </section>
 
   <section id="footer" style="margin-bottom: 30px;">
-    <h3>Očekujemo Vas!</h3>
-    <h3 style="font-style: italic; margin-top: 10px;">S ljubavlju,</h3>
+    <h3 data-i18n="ocekujemo_vas">Očekujemo Vas!</h3>
+    <h3 data-i18n="s_ljubavlju" style="font-style: italic; margin-top: 10px;">S ljubavlju,</h3>
     <h2 style="font-style: italic;">Dejan & Jovana</h2>
-    <p>Septembar 19, 2026</p>
+    <p data-i18n="septembar">Septembar 19, 2026</p>
   </section>
 
   <button id="downloadExcel" class="excel-btn">
@@ -291,6 +305,12 @@
         } else {
           alert("Hvala! Vaš odgovor je uspešno poslat. ❤️")
         }
+
+        // if (attendance === "yes") {
+        //   alert(translations[currentLang].success_yes);
+        // } else {
+        //   alert(translations[currentLang].success_no);
+        // }
         form.reset();
 
         document.getElementById("additionalGuests").innerHTML = "";
