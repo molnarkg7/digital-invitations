@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <section id="intro">
+  <section style="margin-bottom: 0;" id="intro">
     <img style="border-radius: 10px;" src="assets/pozivnica.jpg">
     <p class="pozivnicaText">Dragi naši, <br /> Sa velikom radošću i još većom dozom uzbuđenja, pozivamo Vas da budete
       deo dana,
@@ -26,7 +26,7 @@
     <span class="line"></span>
   </div>
 
-  <section style="margin-top: 0;" id="countdown">
+  <section style="margin-top: 0; margin-bottom: 0;" id="countdown">
     <h2>Odbrojavanje do našeg velikog dana</h2>
     <div class="countdown-grid">
       <div class="time-box">
@@ -54,7 +54,7 @@
     <span class="line"></span>
   </div>
 
-  <section style="margin-top: 0;" id="location">
+  <section style="margin-top: 0; margin-bottom: 0;" id="location">
     <h2>Lokacija</h2>
     <img src="assets/lokacija.png" style="width: 30px; height: 30px;" srcset="">
     <h3>Restoran Ribarac</h3>
@@ -75,7 +75,7 @@
     <span class="line"></span>
   </div>
 
-  <section style="margin-top: 0;" id="plan">
+  <section style="margin-top: 0; margin-bottom: 0;" id="plan">
     <h2>Program dana</h2>
     <div class="timeline">
 
@@ -104,7 +104,7 @@
         <div class="label"><b>Građansko venčanje</b><br />Restoran Ribarac</div>
       </div>
 
-      <div class="timeline-item">
+      <div style="margin-bottom: 0;" class="timeline-item">
         <div class="time">00:00</div>
         <div class="circle"><i class="fa-solid fa-hourglass-end"></i></div>
         <div class="label"><b>Kraj</b></div>
@@ -126,7 +126,7 @@
   </section>
 
   <section style="margin-top: 0;" id="form">
-    <p>Radujemo se Vašem prisustvu!</p>
+    <p style="margin-bottom: 0;">Radujemo se Vašem prisustvu!</p>
 
     <form id="weddingForm">
 
@@ -225,7 +225,7 @@
 
   <section id="footer" style="margin-bottom: 30px;">
     <h3>Očekujemo Vas!</h3>
-    <h3 style="font-style: italic; margin-top: 20px;">S ljubavlju,</h3>
+    <h3 style="font-style: italic; margin-top: 10px;">S ljubavlju,</h3>
     <h2 style="font-style: italic;">Dejan & Jovana</h2>
     <p>Septembar 19, 2026</p>
   </section>
@@ -286,7 +286,11 @@
           createdAt: serverTimestamp()
         });
 
-        alert("Hvala! Vaš odgovor je uspešno poslat. Radujemo se što ćete biti deo našeg velikog dana! ❤️");
+        if (attendance === "yes") {
+          alert("Hvala! Vaš odgovor je uspešno poslat. Radujemo se što ćete biti deo našeg velikog dana! ❤️");
+        } else {
+          alert("Hvala! Vaš odgovor je uspešno poslat. ❤️")
+        }
         form.reset();
 
         document.getElementById("additionalGuests").innerHTML = "";
