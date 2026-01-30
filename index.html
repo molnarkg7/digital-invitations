@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="icon" type="image/png" href="assets/srce.png" />
   <title>Dejan & Jovana</title>
 </head>
@@ -213,29 +214,6 @@
         });
       });
 
-      // optionsSelect.addEventListener('change', function () {
-      // const numberOfGuests = parseInt(this.value || 0);
-      // guestsContainer.innerHTML = '';
-
-      // for (let i = 1; i <= numberOfGuests; i++) {
-      //   const label = document.createElement('label');
-      //   label.textContent = `Ime i prezime ${i + 1}. gosta`;
-
-      //   const input = document.createElement('input');
-      //   input.type = 'text';
-      //   input.name = `guest_${i}`;
-      //   input.placeholder = 'Ime i prezime';
-      //   input.required = true;
-
-      //   input.addEventListener('input', checkFormValidity);
-
-      //   guestsContainer.appendChild(label);
-      //   guestsContainer.appendChild(input);
-      // }
-
-      // checkFormValidity();
-      // });
-
       optionsSelect.addEventListener('change', function () {
         const numberOfGuests = parseInt(this.value || 0);
         guestsContainer.innerHTML = '';
@@ -251,7 +229,6 @@
           const input = document.createElement('input');
           input.type = 'text';
           input.name = `guest_${i}`;
-          // input.placeholder = translations[currentLang].ime;
           input.placeholder = window.translations[window.currentLang].ime;
           input.required = true;
 
@@ -457,9 +434,18 @@
         });
 
         if (attendance === "yes") {
-          alert(translations[currentLang].success_yes);
+          Swal.fire({
+            icon: 'success',
+            title: translations[currentLang].success_yes,
+            confirmButtonText: 'OK'
+          });
+
         } else {
-          alert(translations[currentLang].success_no);
+          Swal.fire({
+            icon: 'success',
+            title: translations[currentLang].success_no,
+            confirmButtonText: 'OK'
+          });
         }
 
         form.reset();
