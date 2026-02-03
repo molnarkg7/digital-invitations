@@ -183,13 +183,28 @@
       window.translations = {};
       window.currentLang = "sr";
 
-
       const form = document.getElementById('weddingForm');
       const submitBtn = document.getElementById('submitBtn');
       const optionsSelect = document.getElementById('options');
       const guestsContainer = document.getElementById('additionalGuests');
       const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
       const attendanceLabel = document.querySelector('.attendanceLabel');
+
+      function formatName(value) {
+        return value
+          .split(" ")
+          .map(word => {
+            if (word.length === 0) return "";
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+          })
+          .join(" ");
+      }
+
+
+      const fullNameInput = document.getElementById("full_name");
+      fullNameInput.addEventListener("input", () => {
+        fullNameInput.value = formatName(fullNameInput.value);
+      });
 
       const checkFormValidity = () => {
         submitBtn.disabled = !form.checkValidity();
@@ -232,7 +247,12 @@
           input.placeholder = window.translations[window.currentLang].ime;
           input.required = true;
 
-          input.addEventListener('input', checkFormValidity);
+          // input.addEventListener('input', checkFormValidity);
+
+          input.addEventListener("input", () => {
+            input.value = formatName(input.value);
+            checkFormValidity();
+          });
 
           guestsContainer.appendChild(label);
           guestsContainer.appendChild(input);
@@ -320,6 +340,8 @@
         success_yes:
           "Hvala! Vaš odgovor je uspešno poslat. Radujemo se što ćete biti deo našeg velikog dana! ❤️",
         success_no: "Hvala! Vaš odgovor je uspešno poslat! ❤️",
+        name_error: "Molimo unesite svoje puno ime i prezime u ispravnom formatu.",
+        name_error2: "Molimo unesite puno ime i prezime za gosta u ispravnom formatu."
       },
       nr: {
         intro_text:
@@ -359,6 +381,8 @@
         success_yes:
           "Takk! Ditt svar er sendt. Vi gleder oss for at du er en del av vår store dag! ❤️",
         success_no: "Takk! Ditt svar er sendt! ❤️",
+        name_error: "Vennligst skriv inn fullt navn i riktig format.",
+        name_error2: "Vennligst skriv inn fullt navn for gjest i riktig format."
       },
     };
 
@@ -406,11 +430,36 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const fullName = document.getElementById("full_name").value.trim();
-      const attendance = document.querySelector(
-        'input[name="attendance"]:checked'
-      ).value;
+      // const fullName = document.getElementById("full_name").value.trim();
+      // const attendance = document.querySelector(
+      //   'input[name="attendance"]:checked'
+      // ).value;
 
+      // const isComing = attendance === "yes";
+      // const companionsCount = isComing ? Number(document.getElementById("options").value) : 0;
+
+      // const companions = [];
+      // if (isComing && companionsCount > 0) {
+      //   for (let i = 1; i <= companionsCount; i++) {
+      //     const guestInput = document.querySelector(`input[name="guest_${i}"]`);
+      //     if (guestInput && guestInput.value.trim() !== "") {
+      //       companions.push({ full_name: guestInput.value.trim() });
+      //     }
+      //   }
+      // }
+
+      const fullName = document.getElementById("full_name").value.trim();
+
+      if (fullName.length <= 3 || !fullName.includes(" ")) {
+        Swal.fire({
+          icon: "error",
+          text: translations[currentLang].name_error,
+          confirmButtonText: "OK"
+        });
+        return;
+      }
+
+      const attendance = document.querySelector('input[name="attendance"]:checked').value;
       const isComing = attendance === "yes";
       const companionsCount = isComing ? Number(document.getElementById("options").value) : 0;
 
@@ -418,8 +467,17 @@
       if (isComing && companionsCount > 0) {
         for (let i = 1; i <= companionsCount; i++) {
           const guestInput = document.querySelector(`input[name="guest_${i}"]`);
-          if (guestInput && guestInput.value.trim() !== "") {
-            companions.push({ full_name: guestInput.value.trim() });
+          if (guestInput) {
+            const guestValue = guestInput.value.trim();
+            if (guestValue.length <= 3 || !guestValue.includes(" ")) {
+              Swal.fire({
+                icon: "error",
+                text: translations[currentLang].name_error2,
+                confirmButtonText: "OK"
+              });
+              return;
+            }
+            companions.push({ full_name: guestValue });
           }
         }
       }
@@ -436,14 +494,14 @@
         if (attendance === "yes") {
           Swal.fire({
             icon: 'success',
-            title: translations[currentLang].success_yes,
+            text: translations[currentLang].success_yes,
             confirmButtonText: 'OK'
           });
 
         } else {
           Swal.fire({
             icon: 'success',
-            title: translations[currentLang].success_no,
+            text: translations[currentLang].success_no,
             confirmButtonText: 'OK'
           });
         }
